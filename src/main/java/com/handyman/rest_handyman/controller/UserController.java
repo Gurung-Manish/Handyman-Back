@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/users")
-public class UserAPIService {
+public class UserController {
     User user;
     @GetMapping("{userId}")
     public User getUserDetails(String userId){
