@@ -1,32 +1,48 @@
 package com.handyman.rest_handyman.controller;
 
 import com.handyman.rest_handyman.model.User;
+import com.handyman.rest_handyman.service.UserService;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/users")
 public class UserController {
-    User user;
+    UserService userService;
+
+    public UserController(UserService userService) {
+        this.userService = userService;
+    }
+
+
+    //Read Specific User Details
     @GetMapping("{userId}")
-    public User getUserDetails(String userId){
-        return new User("u1","mg","mg","mg@gmail.com","98765","9 Road","","DA8 1PL","London","customer");
+    public User getUserDetails(@PathVariable("userId") String userId){
+        return userService.getUser(userId);
+    }
+
+    //Read All Users
+    @GetMapping()
+    public List<User> getAllUsers(){
+        return userService.getAllUsers();
     }
 
     @PostMapping
     public String createUser(@RequestBody User user){
-        this.user = user;
+        userService.createUser(user);
         return "User Created Successfully";
     }
 
     @PutMapping
     public String updateUser(@RequestBody User user){
-        this.user = user;
+        userService.updateUser(user);
         return "User Updated Successfully";
     }
 
     @DeleteMapping("{userId}")
-    public String deleteUser(String userId){
-        this.user = null;
+    public String deleteUser(@PathVariable("userId") String userId){
+        userService.deleteUser(userId);
         return "User Deleted Successfully";
     }
 }
