@@ -16,7 +16,7 @@ public class ServiceController {
     }
 
     @GetMapping("{serviceId}")
-    public Service getServiceDetails(@PathVariable String serviceId){
+    public Service getServiceDetails(@PathVariable("serviceId") String serviceId){
         return service.getService(serviceId);
     }
 
@@ -26,8 +26,13 @@ public class ServiceController {
     }
 
     @GetMapping("/user/{userId}")
-    public List<Service> getServiceByUserId(@PathVariable String userId){
+    public List<Service> getServiceByUserId(@PathVariable("userId") String userId){
         return service.getServicesByUserId(userId);
+    }
+
+    @GetMapping("category/{category}")
+    public List<Service> getServiceByCategory(@PathVariable("category") String category){
+        return service.getServicesByCategory(category);
     }
 
     @PostMapping

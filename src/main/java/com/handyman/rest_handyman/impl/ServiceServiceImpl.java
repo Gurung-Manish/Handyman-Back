@@ -43,6 +43,11 @@ public class ServiceServiceImpl implements ServiceService {
     }
 
     @Override
+    public List<Service> getServicesByCategory(String category) {
+        return serviceRepository.findByCategory(category);
+    }
+
+    @Override
     public List<Service> getAllServices() {
         return serviceRepository.findAll();
     }

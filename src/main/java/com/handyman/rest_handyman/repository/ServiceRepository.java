@@ -10,4 +10,7 @@ import java.util.List;
 public interface ServiceRepository extends JpaRepository<Service, String> {
     @Query("SELECT s FROM Service s WHERE s.serviceProvider.userId = :userId")
     List<Service> findByServiceProviderUserId(@Param("userId") String userId);
+
+    @Query("SELECT s FROM Service s WHERE s.category = :category")
+    List<Service> findByCategory(String category);
 }

@@ -13,5 +13,6 @@ public interface ServiceService {
     public String deleteService(String serviceId);
     public Service getService(String serviceId);
     public List<Service> getServicesByUserId(String userId);
+    public List<Service> getServicesByCategory(String category);
     public List<Service> getAllServices();
 }
