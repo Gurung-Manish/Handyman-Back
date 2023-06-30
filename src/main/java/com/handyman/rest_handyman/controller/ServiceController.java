@@ -25,7 +25,7 @@ public class ServiceController {
         return service.getAllServices();
     }
 
-    @GetMapping("/user/{userId}")
+    @GetMapping("user/{userId}")
     public List<Service> getServiceByUserId(@PathVariable("userId") String userId){
         return service.getServicesByUserId(userId);
     }
@@ -48,7 +48,7 @@ public class ServiceController {
     }
 
     @DeleteMapping("{serviceId}")
-    public String deleteService(@PathVariable String serviceId){
+    public String deleteService(@PathVariable("serviceId") String serviceId){
         service.deleteService(serviceId);
         return "Service Deleted Successfully";
     }
