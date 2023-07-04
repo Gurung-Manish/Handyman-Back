@@ -23,12 +23,12 @@ public class JobController {
     @GetMapping
     public List<Job> getAllJobs(){return jobService.getAllJobs();}
 
-    @GetMapping ("user/{userId}")
+    @GetMapping ("customer/{userId}")
     public List<Job> getJobDetailsByCustomerId(@PathVariable("userId") String userId){
         return jobService.getJobByCustomerId(userId);
     }
 
-    @GetMapping("user/{userId}")
+    @GetMapping("serviceProvider/{userId}")
     public List<Job> getJobDetailsByServiceProviderId(@PathVariable("userId") String userId){
         return jobService.getJobByServiceProviderId(userId);
     }
