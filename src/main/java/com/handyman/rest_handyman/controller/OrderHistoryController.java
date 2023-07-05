@@ -43,7 +43,7 @@ public class OrderHistoryController {
         return "Order History Update Successfully";
     }
 
-    @DeleteMapping("{orderHistoryId")
+    @DeleteMapping("{orderHistoryId}")
     public String deleteOrderHistory(@PathVariable("orderHistoryId") String orderHistoryId){
         orderHistoryService.deleteOrderHistory(orderHistoryId);
         return "Order History Deleted Successfully";

@@ -14,7 +14,7 @@ public class OrderHistory {
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date date;
     @ManyToOne
-    @JoinColumn(name="job_job_id")
+    @JoinColumn(name="job_id")
     private Job job;
     @ManyToOne
     @JoinColumn(name = "customer_user_id")
